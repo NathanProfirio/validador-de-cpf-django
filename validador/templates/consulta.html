@@ -7,9 +7,7 @@
 
 </head>
 <body>
-
     <h1>Validador de cpf</h1>
-    <br>
     <form action="{% url 'consulta_cpf' %}" method="POST">{% csrf_token %}
         <label for="Digo"></label>
         <input type="text" name="cpf" placeholder="Digite um cpf">
@@ -22,6 +20,6 @@
     {% if resposta%}
         <p><strong></strong>{{ resposta }}</p>
     {% endif %} 
-
 </body>
+
 </html>
