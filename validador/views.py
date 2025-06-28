@@ -9,14 +9,14 @@ def consulta_cpf(request):
         return render(request, 'consulta.html')
     elif request.method == "POST":
         cpf_do_usuario = request.POST.get("cpf")
-        
-    
+        cpf_do_usuario = cpf_do_usuario.replace(".", "").replace("-", "")
+
         if not cpf_do_usuario.isdigit():
             resposta = 'Por favor, digite apenas números.'
             return render(request, 'consulta.html',{'resposta': resposta})
         
         if len(cpf_do_usuario) != 11:
-            resposta = 'O CPF deve conter exatamente 11 números.'
+            resposta = 'Um CPF deve conter exatamente 11 números.'
             return render(request, 'consulta.html',{'resposta': resposta})
         
         #Verifica se o usuário digitos somente numeros iguais
